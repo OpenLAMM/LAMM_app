@@ -19,8 +19,8 @@ download(model_repo='LAMM/lamm_7b_lora32_186k', model_name='pytorch_model.pt', o
 args = {
     'model': 'openllama_peft',
     'encoder_ckpt_path': 'ViT-L/14',
-    'vicuna_ckpt_path': os.path.join(XLAB_CACHE, 'lamm_llm_7b_v0'),
-    'delta_ckpt_path': os.path.join(XLAB_CACHE, 'lamm_7b_lora32_186k', 'pytorch_model.pt'),
+    'vicuna_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'lamm_llm_7b_v0'),
+    'delta_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'lamm_7b_lora32_186k', 'pytorch_model.pt'),
     'stage': 2,
     'max_tgt_len': 128,
     'lora_r': 32,
