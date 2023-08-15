@@ -5,13 +5,22 @@ import mdtex2html
 from model.openlamm import LAMMPEFTModel
 import torch
 import json
+from openxlab.model import download
+import os
+
+
+XLAB_CACHE='/home/xlab-app-center'
+# download model
+download(model_repo='LAMM/lamm_llm_7b_v0', 
+        model_name='model_name', output=XLAB_CACHE)
+download(model_repo='LAMM/lamm_7b_lora32_186k', model_name='pytorch_model.pt', output=XLAB_CACHE)
 
 # init the model
 args = {
     'model': 'openllama_peft',
-    'encoder_ckpt_path': './pretrained_ckpt/ViT-L-14.pt',
-    'vicuna_ckpt_path': './pretrained_ckpt/llm_7b_v0',
-    'delta_ckpt_path': './pretrained_ckpt/llm7b_lora32_lamm186k/pytorch_model.pt',
+    'encoder_ckpt_path': 'ViT-L/14',
+    'vicuna_ckpt_path': os.path.join(XLAB_CACHE, 'lamm_llm_7b_v0'),
+    'delta_ckpt_path': os.path.join(XLAB_CACHE, 'lamm_7b_lora32_186k', 'pytorch_model.pt'),
     'stage': 2,
     'max_tgt_len': 128,
     'lora_r': 32,
