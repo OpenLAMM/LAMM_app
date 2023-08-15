@@ -5,15 +5,19 @@ import mdtex2html
 from model.openlamm import LAMMPEFTModel
 import torch
 import json
+import openxlab
 from openxlab.model import download
 import os
 
 
 XLAB_CACHE='/home/xlab-app-center'
+openxlab.login(ak='p1qdabn4nxomdvjwgnxv', sk='ela9p6ler0kwbqp2wpjamnxe8bgk58nx7onqy4oy', re_login=True)
+
 # download model
 download(model_repo='LAMM/openai_clip_vit_14-l', model_name='ViT-L-14.pt')
 download(model_repo='LAMM/lamm_llm_7b_v0', 
-        model_name='model_name', output=XLAB_CACHE)
+        model_name=['config.json', 'generation_config.json', 'pytorch_model.bin.index.json', 'pytorch_model-00001-of-00002.bin', 'pytorch_model-00002-of-00002.bin',
+                    'special_tokens_map.json', 'tokenizer.model', 'tokenizer_config.json'], output=XLAB_CACHE)
 download(model_repo='LAMM/lamm_7b_lora32_186k', model_name='pytorch_model.pt', output=XLAB_CACHE)
 
 # init the model
