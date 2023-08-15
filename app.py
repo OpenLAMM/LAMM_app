@@ -11,6 +11,7 @@ import os
 
 XLAB_CACHE='/home/xlab-app-center'
 # download model
+download(model_repo='LAMM/openai_clip_vit_14-l', model_name='ViT-L-14.pt')
 download(model_repo='LAMM/lamm_llm_7b_v0', 
         model_name='model_name', output=XLAB_CACHE)
 download(model_repo='LAMM/lamm_7b_lora32_186k', model_name='pytorch_model.pt', output=XLAB_CACHE)
@@ -18,7 +19,7 @@ download(model_repo='LAMM/lamm_7b_lora32_186k', model_name='pytorch_model.pt', o
 # init the model
 args = {
     'model': 'openllama_peft',
-    'encoder_ckpt_path': 'ViT-L/14',
+    'encoder_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'openai_clip_vit_14-l/ViT-L-14.pt'),
     'vicuna_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'lamm_llm_7b_v0'),
     'delta_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'lamm_7b_lora32_186k', 'pytorch_model.pt'),
     'stage': 2,
