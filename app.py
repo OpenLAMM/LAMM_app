@@ -20,16 +20,17 @@ download(model_repo='LAMM/lamm_llm_7b_v0',
                     'special_tokens_map.json', 'tokenizer.model', 'tokenizer_config.json'], output=XLAB_CACHE)
 download(model_repo='LAMM/lamm_7b_lora32_186k', model_name='pytorch_model.pt', output=XLAB_CACHE)
 
-os.system('ll {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'lamm_llm_7b_v0')))
-os.system('ll {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'openai_clip_vit_14-l/ViT-L-14.pt')))
-os.system('ll {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'lamm_7b_lora32_186k', 'pytorch_model.pt')))
+os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model')))
+os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'lamm_llm_7b_v0')))
+os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'openai_clip_vit_14-l/ViT-L-14.pt')))
+os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'lamm_7b_lora32_186k', 'pytorch_model.pt')))
 
 # init the model
 args = {
     'model': 'openllama_peft',
-    'encoder_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'openai_clip_vit_14-l/ViT-L-14.pt'),
-    'vicuna_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'lamm_llm_7b_v0'),
-    'delta_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'lamm_7b_lora32_186k', 'pytorch_model.pt'),
+    'encoder_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'LAMM_openai_clip_vit_14-l/ViT-L-14.pt'),
+    'vicuna_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'LAMM_lamm_llm_7b_v0'),
+    'delta_ckpt_path': os.path.join(XLAB_CACHE, '.cache/model', 'LAMM_lamm_7b_lora32_186k', 'pytorch_model.pt'),
     'stage': 2,
     'max_tgt_len': 128,
     'lora_r': 32,
