@@ -59,7 +59,7 @@ class StoppingCriteriaSub(StoppingCriteria):
 class MyStoppingCriteria(StoppingCriteria):
     def __init__(self, stops, input_ids):
         super().__init__()
-        self.stops = [torch.tensor(stop).to('cuda:0') for stop in stops]
+        self.stops = [torch.tensor(stop).to('cuda') for stop in stops]
         self.stop_flag = [0]*input_ids.shape[0]
 
     def check_stop(self, input_ids):
