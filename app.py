@@ -10,8 +10,8 @@ from openxlab.model import download
 import os
 
 
-# XLAB_CACHE='/home/xlab-app-center'
-XLAB_CACHE='/mnt/petrelfs/wangjiong/'
+XLAB_CACHE='/home/xlab-app-center'
+# XLAB_CACHE='/mnt/petrelfs/wangjiong/'
 openxlab.login(ak='p1qdabn4nxomdvjwgnxv', sk='ela9p6ler0kwbqp2wpjamnxe8bgk58nx7onqy4oy', re_login=True)
 
 # download model
@@ -21,10 +21,10 @@ download(model_repo='LAMM/lamm_llm_7b_v0',
                      'special_tokens_map.json', 'tokenizer.model', 'tokenizer_config.json'])
 download(model_repo='LAMM/lamm_7b_lora32_186k', model_name='pytorch_model.pt')
 
-os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model')))
-os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'lamm_llm_7b_v0')))
-os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'openai_clip_vit_14-l/ViT-L-14.pt')))
-os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'lamm_7b_lora32_186k', 'pytorch_model.pt')))
+# os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model')))
+# os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'lamm_llm_7b_v0')))
+# os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'openai_clip_vit_14-l/ViT-L-14.pt')))
+# os.system('ls -l {}'.format(os.path.join(XLAB_CACHE, '.cache/model', 'lamm_7b_lora32_186k', 'pytorch_model.pt')))
 
 # init the model
 args = {
